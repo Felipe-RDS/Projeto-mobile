@@ -1,0 +1,7 @@
+{
+  "name": "sistema-solar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
