@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Cadastro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-item class="ion-padding" color="light">
+    <ion-label>Nome de Usuário</ion-label>
+    <ion-input type="text" placeholder="Nome"></ion-input>
+  </ion-item>
+  <ion-item class="ion-padding" color="light">
+    <ion-label>E-mail</ion-label>
+    <ion-input type="text" placeholder="E-mail"></ion-input>
+  </ion-item>
+  <ion-item class="ion-padding" color="light">
+    <ion-label>Senha</ion-label>
+    <ion-input type="password" placeholder="Senha"></ion-input>
+  </ion-item>
+
+  <ion-button name="Confirmar" [routerLink]="['/home']" expand="block" color="success" shape="round">
+    <strong>Confirmar</strong>
+  </ion-button>
+
+  <ion-button name="Cancelar" [routerLink]="['/login']" expand="block" color="danger" shape="round">
+    <strong>Cancelar</strong>
+  </ion-button>
+
+
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-content >
+  <ion-row class="ligth" class="title">
+    <ion-col size="2"></ion-col>
+    <ion-col size="8">
+    <div class="ion-text-start">
+      <h2>Lorem ipsum dolor</h2>
+     </div>
+    </ion-col>
+    <ion-col size="2"></ion-col>
+</ion-row>
+
+<ion-row class="ion-align-items-center" class="ion-float-rigth">
+  <ion-col size="8" class="ion-align-self-center" class="ligth" class="title">
+    <div class="ion-text-start">
+      <h3>Login</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+     </div>
+  </ion-col>
+</ion-row>
+
+
+
+  <ion-item class="ion-align-items-center" lines="none">
+    <ion-input  type="text" placeholder="Name" [(ngModel)]="nome"></ion-input>
+    <label > <ion-icon name="person-outline"></ion-icon> </label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input  type="text" placeholder="Password" [(ngModel)]="senha"></ion-input>
+    <label > <ion-icon name="eye-outline"></ion-icon> </label>
+  </ion-item>
+
+  <ion-row class="ion-align-self-center ion-float-right forgot light">
+  <!-- <ion-row class="ion-align-self-center" class="forgot" class="ligth">-->
+    <a name="forgot">
+      Forgot password?
+    </a>
+  </ion-row>
+
+  <button class="login" [routerLink]="['/home']">Login</button>
+
+
+  <ion-row class="ion-align-self-center" class="register" class="ligth">
+  <a name="Registrar" [routerLink]="['/register']">
+    Register
+  </a>
+</ion-row>
+
+
+</ion-content>

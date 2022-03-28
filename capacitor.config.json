@@ -1,6 +1,9 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "sistema-solar",
-	"webDir": "www",
-	"bundledWebRuntime": false
+  "appId": "io.ionic.starter",
+  "appName": "sistema-solar",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "http://192.168.100.23:8100"
+  }
 }

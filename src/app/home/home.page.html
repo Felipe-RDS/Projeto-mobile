@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item></ion-item>
+  </ion-list>
+
+  <ion-button [routerLink]="['/login']" expand="block" color="danger" shape="round">
+    <strong>Logout</strong>
+  </ion-button>
+
+  <ion-button [routerLink]="['/login']" expand="block" color="tertiary" shape="round">
+    <strong>Login</strong>
+  </ion-button>
+
+</ion-content>
