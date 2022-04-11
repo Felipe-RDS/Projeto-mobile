@@ -1,0 +1,31 @@
+<ion-content >
+  <div>
+    <ion-col>
+      <ion-row>
+        <button class="btn" [routerLink]="['/home']"><ion-icon class="btn-icon" name="arrow-back-outline"></ion-icon></button>
+      </ion-row>
+    </ion-col>
+  </div>
+
+  <div class="first">
+    <h1>Articles</h1>
+    <p> Search about our solar system using our library</p>
+  </div>
+
+    <ion-searchbar animated="true"></ion-searchbar>
+
+    <ion-select class="filter" placeholder="Filter">
+      <ion-select-option value="planet">Planet</ion-select-option>
+      <ion-select-option value="star">Star</ion-select-option>
+    </ion-select>
+
+    <ion-col>
+    <ion-item class="header">
+      <ion-icon name="planet-outline"></ion-icon>
+      <h5>Results </h5> 
+    </ion-item>
+  <ion-list class="list" *ngFor="let obj of commonArticles">
+    {{obj.text}}
+  </ion-list>
+</ion-col>
+</ion-content>

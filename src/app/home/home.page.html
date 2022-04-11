@@ -1,24 +1,59 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
+  <ion-toolbar>
+
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
 
-    <ion-title>Home</ion-title>
+      <link rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+      />
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content >
 
-<ion-content>
-  <ion-list>
-      <ion-item></ion-item>
-  </ion-list>
+  <swiper
+    [effect]="'cube'"
+    [grabCursor]="true"
+    [cubeEffect]="{
+      shadow: true,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.94
+    }"
+    [pagination]="true"
+    class="mySwiper"
+  >
+    <ng-template swiperSlide
+      ><img src="https://cdn.dribbble.com/users/78464/screenshots/17344735/media/4b091c31cd30c76a1e9c0ed08f11bdca.jpg?compress=1&resize=1200x900&vertical=top" /></ng-template
+    ><ng-template swiperSlide
+      ><img src="https://cdn.dribbble.com/users/3363695/screenshots/8503294/media/ae2ca530564ef23df5a2656cea13f8d0.jpg?compress=1&resize=1200x900&vertical=top" /></ng-template
+    ><ng-template swiperSlide
+      ><img src="https://cdn.dribbble.com/users/191949/screenshots/12522250/media/2e1e7ec4cc06fc996618874bf658c5f8.jpg?compress=1&resize=1200x900&vertical=top" />
+    </ng-template>
+  </swiper>
 
-  <ion-button [routerLink]="['/login']" expand="block" color="danger" shape="round">
-    <strong>Logout</strong>
-  </ion-button>
+  <div scrollX="true" id="myFixZone">
+  <ion-row >
+    <ion-col size="3" class="ligth" class="title">
+      <ion-card *ngFor="let obj of commonArticles">
+        <ion-card-header>
+          <ion-card-title> <h2>{{obj.title}}</h2></ion-card-title>
+          <ion-card-subtitle>
+            {{obj.text}}
+          </ion-card-subtitle>
+          <button class="btn button-outline">
+            Read more
+          </button>
+        </ion-card-header>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  </div>
 
-  <ion-button [routerLink]="['/login']" expand="block" color="tertiary" shape="round">
-    <strong>Login</strong>
-  </ion-button>
 
 </ion-content>
+
