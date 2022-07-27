@@ -1,30 +1,64 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Cadastro</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-item class="ion-padding" color="light">
-    <ion-label>Nome de Usuário</ion-label>
-    <ion-input type="text" placeholder="Nome"></ion-input>
-  </ion-item>
-  <ion-item class="ion-padding" color="light">
-    <ion-label>E-mail</ion-label>
-    <ion-input type="text" placeholder="E-mail"></ion-input>
-  </ion-item>
-  <ion-item class="ion-padding" color="light">
-    <ion-label>Senha</ion-label>
-    <ion-input type="password" placeholder="Senha"></ion-input>
-  </ion-item>
+  <ion-card>
+    <ion-row class="ion-align-items-center" class="ion-float-rigth">
+      <ion-col size="" class="ion-align-self-center" class="ligth" class="title">
+        <div class="ion-text-start">
+          <h3>Sign up <ion-icon name="planet-outline" class="planet"></ion-icon></h3>
+          <p>Welcome to our planet,  <br> here you can explore about solar system! </p>
+         </div>
+      </ion-col>
+    </ion-row>
 
-  <ion-button name="Confirmar" [routerLink]="['/home']" expand="block" color="success" shape="round">
-    <strong>Confirmar</strong>
-  </ion-button>
+    <form #form="ngForm" [formGroup]="userForm" (ngSubmit)="register()">
 
-  <ion-button name="Cancelar" [routerLink]="['/login']" expand="block" color="danger" shape="round">
-    <strong>Cancelar</strong>
-  </ion-button>
+      <ion-item class="ion-align-items-center" lines="none">
+        <ion-input formControlName="name" name="name"  type="text" placeholder="Name"></ion-input>
+        <label > <ion-icon name="person-outline"></ion-icon> </label>
+      </ion-item>
 
+      <ion-item lines="none"
+        *ngIf="(userForm.get('nome')?.errors?.['required'] ||
+              userForm.get('nome')?.errors?.['minlength'] ||
+              userForm.get('nome')?.errors?.['maxlength']) &&
+              (form.submitted || userForm.get('nome')?.['touched'])">
+        <small class="error-message">
+          Informe o nome contendo entre 5 e 30 caracteres.
+        </small>
+    </ion-item>
 
-</ion-content>
+      <ion-item>
+        <ion-input  formControlName="email" name="email" type="email" placeholder="Email"></ion-input>
+        <label> <ion-icon name="mail-outline"></ion-icon> </label>
+      </ion-item>
+
+      <ion-item lines="none"
+        *ngIf="(userForm.get('email')?.errors?.['required'] ||
+                userForm.get('email')?.errors?.['email']) &&
+                (form.submitted || userForm.get('email')?.['touched'])">
+        <small class="error-message">
+          Informe o e-mail corretamente.
+        </small>
+    </ion-item>
+
+      <ion-item lines="none">
+        <ion-input formControlName="password" name="password" type="password" placeholder="Password"></ion-input>
+        <label > <ion-icon name="eye-outline"></ion-icon> </label>
+      </ion-item>
+
+      <ion-item lines="none"
+        *ngIf="(userForm.get('senha')?.errors?.['required'] ||
+                userForm.get('senha')?.errors?.['minlength']) &&
+                (form.submitted || userForm.get('senha')?.['touched'])">
+        <small class="error-message">
+          Informe uma senha com pelos menos 5 caracteres.
+        </small>
+    </ion-item>
+
+      <button type="submit" class="login">Create account</button>
+      <div style="display:flex; justify-content:center" [routerLink]="['/login']">
+      <a name="forgot">
+        Already have a account? Sign in
+      </a>
+      </div>
+    </form>
+  </ion-card>

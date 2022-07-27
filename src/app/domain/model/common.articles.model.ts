@@ -1,15 +1,15 @@
 export class CommonArticles{
-    public id: number;
+    public id: string;
     public title: string;
     public icon: string;
     public subtitle: string;
     public text: string;
     public url: string;
     public image: string;
-  
-    constructor(id?: number, title?: string, text?: string,
+
+    constructor(id?: string, title?: string, text?: string,
         subtitle?: string, url?: string, image?: string, icon?: string){
-      this.id = (id)? id : 0;
+      this.id = (id)? id : '';
       this.title = (title)? title : '';
       this.text = (text)? text : '';
       this.subtitle = (subtitle)? subtitle : '';

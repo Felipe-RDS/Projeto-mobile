@@ -1,24 +1,15 @@
 <ion-app>
-
   <ion-split-pane contentId="main-content">
     <ion-menu side="start" menuId="first" contentId="main-content">
-      <ion-header>
-          <ion-avatar>
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-          </ion-avatar>
-          <ion-title></ion-title>
-      </ion-header>
       <ion-content>
         <ion-list>
           <ion-item [routerLink]="['/home']"><ion-icon name="home"></ion-icon> Home </ion-item>
           <ion-item [routerLink]="['/articles']"> <ion-icon name="book"></ion-icon>Articles</ion-item>
-          <ion-item> <ion-icon name="person"></ion-icon> Conta</ion-item>
-          <ion-item>  <ion-icon name="star-outline"></ion-icon>Favoritos</ion-item>
-          <ion-item>Sobre</ion-item>
+          <ion-item [routerLink]="['/account']"> <ion-icon name="person"></ion-icon> Account</ion-item>
+          <ion-item>  <ion-icon name="star-outline"></ion-icon>Favorites</ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
-
 </ion-app>

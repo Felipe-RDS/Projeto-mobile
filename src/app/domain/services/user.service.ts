@@ -1,33 +1,60 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/domain/model/user.model';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
-  public user: Array<User> = [
-    {
-      id: 0,
-      name: 'joao',
-      email: 'a@email.com',
-      password: 'a1234',
-    },
-    {
-      id: 1,
-      name: 'ana',
-      email: 'b@email.com',
-      password: 'b1234',
-    },
-    {
-      id: 2,
-      name: 'maria',
-      email: 'c@email.com',
-      password: 'c1234',
-    }
-  ];
-  constructor() { }
+
+  constructor(private firestore: AngularFirestore) { }
 
   public get(){
-    return this.user;
+    return this.firestore.collection('user').snapshotChanges();
+  }
+
+  public getById(id: string) {
+    return this.firestore.collection('user').doc(id).ref.get().then((item)=>{
+      if (item.exists) {
+        const user = item.data();
+        return {
+          id: item.id,
+          name: user['name'],
+          email: user['email'],
+          password: user['password'],
+        };
+      }
+
+      return new User();
+    });
+  }
+
+  public getByUID(uid: string) {
+    return this.firestore
+               .collection(
+                 'user',
+                  ref =>
+                    ref.where('uid', '==', uid)
+                ).snapshotChanges();
+
+  }
+
+  public add(user: User) {
+    delete user.id;
+    return this.firestore
+               .collection('user')
+               .add({
+                 ...user
+               });
+  }
+
+  public edit(user: User) {
+    return this.firestore.doc(`user/${user.id}`).update({
+      ...user
+    });
+  }
+
+  public delete(id: string) {
+    return this.firestore.doc(`user/${id}`).delete();
   }
 }

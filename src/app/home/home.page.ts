@@ -1,8 +1,12 @@
 import { AfterContentChecked, AfterContentInit, Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { CommonArticles } from 'src/app/domain/model/common.articles';
-import { SwiperComponent } from 'swiper/angular';
+import { CommonArticles } from 'src/app/domain/model/common.articles.model';
 
+import SwiperCore, { Autoplay, EffectCube, Pagination, Scrollbar } from 'swiper';
+import { CommonArticlesService } from '../domain/services/common.articles';
+
+
+SwiperCore.use([Autoplay, EffectCube, Scrollbar, Pagination]);
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -10,46 +14,24 @@ import { SwiperComponent } from 'swiper/angular';
 })
 export class HomePage implements OnInit {
 
+    public commonArticles: Array<CommonArticles> = [ ];
 
-  public commonArticles: Array<CommonArticles> = [
-    {
-        id: 0,
-        title: 'Sun 🌣',
-        subtitle: 'Yellow dwarf star',
-        text: 'The Sun is a yellow dwarf star, a hot ball of glowing gases at the heart of our solar system.',
-        url: 'https://solarsystem.nasa.gov/solar-system/sun/overview/',
-        image: './../../assets/images/b.png',
-        icon: './../../assets/images/sunny-outline.svg'
-    },
-    {
-        id: 1,
-        title: 'Moon ☾',
-        subtitle: '',
-        text: 'The regular daily and monthly rhythms of Earth’s only natural satellite, the Moon, have guided timekeepers for...',
-        url: 'https://moon.nasa.gov/inside-and-out/overview/',
-        image: './../../assets/images/c.png',
-        icon: './../../assets/images/sunny-outline.svg'
-    },
-    {
-        id: 2,
-        title: 'Earth ⊕',
-        subtitle: '',
-        text: 'Our home planet is the third planet from the Sun, and the only place we know of so far that’s inhabited by living things.',
-        url: 'https://solarsystem.nasa.gov/planets/earth/overview/',
-        image: '',
-        icon: ''
+    constructor(private articleService: CommonArticlesService) { }
+
+    ngOnInit() {
+      this.articleService.get().subscribe((commonArticles)=>{
+        this.commonArticles = commonArticles.map((item)=>{
+          return {
+            id: item.payload.doc.id,
+            title: item.payload.doc.data()['title'],
+            subtitle: item.payload.doc.data()['subtitle'],
+            text: item.payload.doc.data()['text'],
+            url: item.payload.doc.data()['url'],
+            image: item.payload.doc.data()['image'],
+            icon: item.payload.doc.data()['icon']
+          };
+        });
+      });
     }
-  ];
-
-  constructor(private menu: MenuController) { }
-
-
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  ngOnInit() {
-  }
 
 }

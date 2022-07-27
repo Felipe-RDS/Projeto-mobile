@@ -1,0 +1,91 @@
+ion-content{
+    --background: url('/assets/images/pagesback.png');
+}
+
+ion-card{
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #7902F5;
+    background-color: #4d009f7e;
+    display: flex;
+    font-size: 14px;
+}
+
+.title{
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.596);
+}
+
+.not-input{
+    position: relative;
+    justify-content: center;
+    margin-bottom: 2px;
+    border-bottom: 1px solid #7902F5;
+    width: 100%;
+}
+
+ion-avatar{
+    margin-right: 1em;
+}
+
+ion-icon{
+   padding-top: 0.2em;
+   padding-left: 0.5em;
+   color: white;
+}
+
+.title2{
+    margin-left: 20px;
+}
+
+.edit{
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    border-radius: 8px;
+    background-color: rgba(224, 224, 224, 0.11);
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 30px;
+    text-align: center;
+    text-decoration: rgba(205, 205, 205, 0.77);
+    margin-left: 44px;
+    margin-right: 28px;
+    margin-bottom: 0.4em;
+    margin-top: 1em;
+    padding-bottom: 1.4em;
+    padding-top: 0.5em;
+    border: 1px solid #7902F5;
+}
+
+.btn{
+    height: 100%;
+    min-height: 16px;
+    min-width: 6%;
+    margin-left: 2em;
+    border: 1px solid #7902F5;
+    background-color: #4d009f7e;
+    --icon-color: #5400AB;
+    border-radius: 2px;
+    display:flex;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.btn-icon{
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-right: 0.4em;
+    color: #7902F5;
+}
+
+.first{
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    margin-left: 4.8em;
+    align-self: center;
+    display: flex;
+}
+

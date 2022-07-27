@@ -6,7 +6,7 @@ export class UserArticles{
     public url: string;
     public image: string;
     public type: type;
-  
+
     constructor(id?: number, title?: string, text?: string,
         subtitle?: string, url?: string, image?: string, type?: type){
       this.id = (id)? id : 999;

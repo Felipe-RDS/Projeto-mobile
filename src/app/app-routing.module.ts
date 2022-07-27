@@ -22,6 +22,18 @@ const routes: Routes = [
   {
     path: 'articles',
     loadChildren: () => import('./articles/articles.module').then( m => m.ArticlesPageModule)
+  },
+  {
+    path: 'articles-infos/:id',
+    loadChildren: () => import('./articles-infos/articles-infos.module').then( m => m.ArticlesInfosPageModule)
+  },
+  {
+    path: 'article-new',
+    loadChildren: () => import('./article-new/article-new.module').then( m => m.ArticleNewPageModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
   }
 ];
 

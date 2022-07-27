@@ -1,0 +1,50 @@
+<ion-content>
+      <ion-row>
+        <button class="btn" [routerLink]="['/home']">
+          <ion-icon class="btn-icon" name="arrow-back-outline">
+          </ion-icon>
+        </button>
+        <div class="first">
+          <h1>Account
+          </h1>
+        </div>
+      </ion-row>
+      <ion-card>
+        <ion-col col="5">
+          <ion-item lines="none">
+            <div>
+               <ion-img
+               style="width: 25px; display: block;  margin: auto;"
+               [src]="photoServ?.foto?.webviewpath">
+               </ion-img>
+            </div>
+            <ion-button (click)="activateCamera()">
+              <ion-icon slot="icon-only" name="camera"></ion-icon>
+              Photo
+            </ion-button>
+           </ion-item>
+      </ion-col>
+      <label class="not-input">
+        <p class="title">Premium</p>
+        <p>USERNAME</p>
+      </label>
+      <label class="not-input">
+        <p class="title">Your activities</p>
+        <ion-row class="icons">
+          <ion-icon name="heart-outline"></ion-icon> <ion-icon name="bookmark-outline"></ion-icon> <ion-icon name="book-outline"></ion-icon>
+        </ion-row>
+      </label>
+      </ion-card>
+
+      <ion-card class="all">
+        <ion-row>
+          <label>
+            <button type="submit" class="edit">Update username</button>
+            <button type="submit" class="edit">Update email</button>
+            <button type="submit" class="edit">Update password</button>
+            <label class="line"></label>
+          </label>
+          </ion-row>
+
+      </ion-card>
+</ion-content>

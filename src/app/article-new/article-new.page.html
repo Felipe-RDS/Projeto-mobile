@@ -1,0 +1,170 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form *ngIf="!found">
+   <ion-card>
+     <ion-card-header>
+       <ion-card-title class="ion-text-center" style="font-weight: bold;">New Article</ion-card-title>
+     </ion-card-header>
+
+
+     <ion-card-content>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold;">Title</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="article.title"
+          placeholder="Enter the article's title">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold;">Subtitle</ion-label>
+          <ion-input type="text" name="subtitle" [(ngModel)]="article.subtitle"
+          placeholder="Enter the article's subtitle">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold;">Text</ion-label>
+          <ion-textarea name="text" [(ngModel)]="article.text"
+          placeholder="Enter the article's text"></ion-textarea>
+        </ion-item>
+     </ion-card-content>
+   </ion-card>
+
+    <ion-button (click)="register()" strong="true" color="success" expand="block" shape="round">
+      <ion-icon slot="end" name="save"></ion-icon>
+      Save
+    </ion-button>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center" style="font-weight: bold;">Edit Article</ion-card-title>
+      </ion-card-header>
+
+
+      <ion-card-content>
+
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold;">Id</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="articleFound.id"
+          placeholder="Enter the article's Id">
+          </ion-input>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button (click)="search()" strong="true" color="success" expand="block" shape="round">
+      <ion-icon slot="end" name="save"></ion-icon>
+      Search
+    </ion-button>
+  </form>
+
+  <form *ngIf="found">
+      <ion-card>
+        <ion-item>
+          <ion-icon (click)="edit()" size="large" slot="end" name="create">
+          </ion-icon>
+        </ion-item>
+
+        <ion-img *ngIf="articleFound.image" [src]="articleFound.image"></ion-img>
+
+        <ion-card-content>
+          <ion-item>
+            <ion-label [ngStyle]="{'font-weight': 'bold'}">Id:</ion-label>
+            <ion-input type="text" name="id" [ngModel]="articleFound.id"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label [ngStyle]="{'font-weight': 'bold'}">Title:</ion-label>
+            <ion-input type="text" name="title" [ngModel]="articleFound.title"></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label [ngStyle]="{'font-weight': 'bold'}">Subtitle:</ion-label>
+            <ion-input type="number" name="subtitle" [ngModel]="articleFound.subtitle"></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label [ngStyle]="{'font-weight': 'bold'}">Text:</ion-label>
+            <ion-textarea name="text" [ngModel]="articleFound.text"></ion-textarea>
+          </ion-item>
+
+        </ion-card-content>
+      </ion-card>
+  </form>
+
+  <form *ngIf="(found) && (isEdit)">
+    <ion-card>
+      <ion-item>
+        <ion-icon (click)="openAlert()" size="large" name="trash" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-img *ngIf="articleEdit.image" [src]="articleEdit.image"></ion-img>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label [ngStyle]="{'font-weight': 'bold'}">Id:</ion-label>
+          <ion-input type="text" name="id" [ngModel]="articleEdit.id" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label [ngStyle]="{'font-weight': 'bold'}">Image:</ion-label>
+          <ion-input type="text" name="image" [(ngModel)]="articleEdit.image"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label [ngStyle]="{'font-weight': 'bold'}">Title:</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="articleEdit.title"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label [ngStyle]="{'font-weight': 'bold'}">Subtitle:</ion-label>
+          <ion-input type="number" name="subtitle" [(ngModel)]="articleEdit.subtitle"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label [ngStyle]="{'font-weight': 'bold'}">Text:</ion-label>
+          <ion-textarea name="text" [(ngModel)]="articleEdit.text"></ion-textarea>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-button (click)="save()" color="success" expand="block"
+    shape="round">
+      <ion-icon slot="end" name="save">
+      </ion-icon>
+      Salve
+    </ion-button>
+
+
+    <ion-button (click)="cancel()" color="warning" expand="block"
+    shape="round">
+      <ion-icon slot="end" name="close">
+      </ion-icon>
+      Cancel
+    </ion-button>
+
+
+   </form>
+</ion-content>
+

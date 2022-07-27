@@ -1,0 +1,23 @@
+<ion-content>
+  <div>
+    <ion-col>
+      <ion-row>
+        <button class="btn" [routerLink]="['/home']"><ion-icon class="btn-icon" name="arrow-back-outline"></ion-icon></button>
+      </ion-row>
+    </ion-col>
+  </div>
+  <ion-list>
+  <ion-col col="4">
+    <div>
+      <ion-img>{{article.image}}</ion-img>
+    </div>
+    <div class="first" align="center">
+      <h1>{{article.title}}</h1>
+      <h5>{{article.text}} </h5>
+    </div>
+  </ion-col>
+  <ion-row class="icons">
+    <ion-icon name="heart-outline"></ion-icon> <ion-icon name="bookmark-outline"></ion-icon>
+  </ion-row>
+</ion-list>
+</ion-content>
